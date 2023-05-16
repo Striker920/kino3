@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <form method="POST" action="" novalidate>
+    {{ form.csrf_token }}
+    <div class="mb-3">
+      <label>
+        {{ form.name.label }}
+      </label>
+      {{ form.name(class="form-control") }}
+    </div>
+    {{% for error in form.name.errors %}
+      <div class="alert alert-danger" role="alert">
+        <span>{{ error }}</span>
+    </div>
+    {% endfor %}
+    <div class="mb-3">
+      {{ form.submit(class="btn btn-lg btn-outline-secondary") }}
+    </div>
+  </form>
+</head>
